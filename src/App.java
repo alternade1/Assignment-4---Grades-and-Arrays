@@ -1,39 +1,37 @@
 import java.util.Scanner; 
 public class App {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         Scanner in = new Scanner(System.in); 
         int[] grades = new int[100];
-        int gradeCount = 0; 
+        int totalgrades = 0; 
 
             while (true){
-                System.out.println("Please enter grades, or -1 to stop:");
+                System.out.println("Please enter your grades, or type in -1 to stop:");
                 int grade = in.nextInt();
                 if (grade == -1) {
                     break; 
                 } 
 
-                grades[gradeCount] = grade; 
+                grades[totalgrades] = grade; 
 
-                gradeCount++; 
+                totalgrades++; 
 
     
             }
-           if (gradeCount == 0) {
-            System.out.println("No grades entered");
-
-           } else {
-            double total = 0; 
-            for (int i = 0; i < gradeCount; i++); {
-                total += grades[i];
-
+            if (totalgrades == 0) {
+                System.out.println("No grades have been entered.");
+            } else {
+            
+                double total = 0; 
+                for (int i = 0; i < totalgrades; i++) { 
+                    total += grades[i]; 
+                }
+                double average = total / totalgrades; 
+    
+                System.out.println("The average of those " + totalgrades + " grades that you added is: " + average); 
             }
-
-
-            double average = total / gradeCount; 
-            System.out.println("The average of the the grades you input " + gradeCount + " is: " + average);
-           }
-
-           in.close(); 
+    
+            in.close();
           
     }
 }
